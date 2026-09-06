@@ -2,7 +2,7 @@
 
 My simple portfolio site built with pure HTML, CSS & JavaScript.
 
-🔗 **Live site:** [https://ma-noa.github.io/Portfolio](https://ma-noa.github.io/)
+🔗 **Live site:** [https://ma-noa.github.io/](https://ma-noa.github.io/)
 
 ## Structure
 
