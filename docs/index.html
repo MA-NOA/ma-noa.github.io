@@ -1,155 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Irimanoa N. HJ — Mathematics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<title>Irimanoa N. HJ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one narrow column, a margin-note style label column on wide screens, plain rows below. */
+:root {
+  --bg: #fafbfc;
+  --fg: #151a22;
+  --muted: #5a6472;
+  --rule: #dde2e9;
+  --accent: #1f4fd1;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a; --fg: #e8ecf2; --muted: #98a2b1; --rule: #262d38; --accent: #8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a; --fg: #e8ecf2; --muted: #98a2b1; --rule: #262d38; --accent: #8fb0ff;
+  color-scheme: dark;
+}
 
-<nav>
-  <a class="nav-logo" href="#hero">∫ IN</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-<div id="hero">
-  <p class="hero-eyebrow">Mathematics Student</p>
-  <h1 class="hero-name">Irimanoa <em>Nampoina Hiarijaona</em></h1>
-  <p class="hero-sub">∂/∂x [ curiosity ] = understanding</p>
-  <p class="hero-desc">
-    I study the structure of things — from real analysis to computational number theory. Mathematics is how I think, write, and see the world.
-  </p>
-  <div class="hero-cta">
-    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-    <a href="#about" class="btn btn-outline">Learn More</a>
-  </div>
-  <div class="hero-formula">e^{iπ} + 1 = 0 · ∇²φ = ρ/ε₀ · ds² = −c²dt² + dx²</div>
+header.top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; flex-wrap: wrap;
+  font-family: var(--font-mono); font-size: 13px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--rule);
+}
+.mark { font-weight: 500; letter-spacing: .02em; }
+nav { display: flex; gap: 20px; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--fg); }
 
+.hero { padding-block: 72px 56px; }
+.role {
+  font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 18px;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(2.3rem, 7vw, 3.6rem); line-height: 1.08; letter-spacing: -.015em;
+  margin: 0 0 22px; text-wrap: balance;
+}
+h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.eq { font-family: var(--font-mono); font-size: 14px; color: var(--accent); margin: 0 0 22px; overflow-wrap: anywhere; }
+.lede { font-size: 1.1rem; max-width: 56ch; margin: 0; }
+
+section { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 32px; padding-block: 36px; border-top: 1px solid var(--rule); }
+h2 {
+  font-family: var(--font-mono); font-weight: 400; font-size: 12.5px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0;
+}
+.body { min-width: 0; max-width: 60ch; }
+.body p { margin: 0 0 1em; }
+.body p:last-child { margin-bottom: 0; }
+
+dl.skills { margin: 0; display: grid; gap: 14px; }
+dl.skills > div { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 4px 20px; }
+dt { font-family: var(--font-display); font-style: italic; color: var(--muted); }
+dd { margin: 0; }
+
+.contact-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; font-family: var(--font-mono); font-size: 14px; }
+.contact-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.contact-list .k { color: var(--muted); min-width: 64px; }
+.contact-list .v { overflow-wrap: anywhere; user-select: all; }
+button.copy {
+  font: inherit; font-size: 12px; color: var(--accent); background: none;
+  border: 1px solid var(--rule); border-radius: 3px; padding: 2px 10px; cursor: pointer;
+}
+button.copy:hover { border-color: var(--accent); }
+
+footer {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  border-top: 1px solid var(--rule); padding-top: 18px;
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .hero { padding-block: 48px 40px; }
+  section { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  dl.skills > div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="mark">∫ IN</span>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="hero">
+      <p class="role">Mathematics student</p>
+      <h1>Irimanoa <em>Nampoina Hiarijaona</em></h1>
+      <p class="eq">∂/∂x [ curiosity ] = understanding</p>
+      <p class="lede">I like understanding why things work. Mostly analysis, algebra and a bit of number theory.</p>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="body">
+        <p>I'm doing a BSc in pure and applied mathematics. I enjoy it most when an abstract idea turns into something I can code or see in the real world.</p>
+        <p>Right now I'm reading about manifolds and how they show up in physics.</p>
+        <p>I also write short essays and help friends with calculus and proofs.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="body" style="max-width:none">
+        <dl class="skills">
+          <div><dt>Math</dt><dd>Analysis, algebra, number theory, probability, differential equations</dd></div>
+          <div><dt>Code</dt><dd>Python, MATLAB, C++, Go, LaTeX</dd></div>
+          <div><dt>Other</dt><dd>Writing proofs, teaching</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="body">
+        <p>Want to talk about a math idea, work on something together, or get help with calculus or proofs? Send me an email.</p>
+        <ul class="contact-list">
+          <li>
+            <span class="k">Email</span>
+            <a class="v" href="mailto:manoa576@proton.me">manoa576@proton.me</a>
+            <button class="copy" type="button" data-copy="manoa576@proton.me">Copy</button>
+          </li>
+          <li>
+            <span class="k">GitHub</span>
+            <a class="v" href="https://github.com/MA-NOA" target="_blank" rel="noopener">github.com/MA-NOA</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Irimanoa N. HJ</span>
+    <span>∫₋∞^∞ e^(−x²) dx = √π</span>
+  </footer>
 </div>
 
-<section id="about">
-  <p class="section-label reveal">01 — About</p>
-  <div class="divider reveal"></div>
-  <h2 class="reveal">Thinking in <em>structures</em><br>and symmetry</h2>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>I'm a mathematics student fascinated by the interplay between abstract algebra, analysis, and the surprising ways these fields touch computation and the physical world.</p>
-      <p>My coursework spans real and complex analysis, linear algebra, probability theory, and differential equations. I'm currently exploring the geometry of manifolds and its connections to modern physics.</p>
-      <p>Outside of lectures, I write mathematical essays and tutor fellow students in calculus and proof-writing.</p>
-    </div>
-    <div class="about-stats reveal">
-      <div>
-        <div class="stat-num">BSc</div>
-        <div class="stat-label">Pure &amp; Applied Mathematics</div>
-      </div>
-      <div>
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Curiosity Level</div>
-      </div>
-      <div>
-        <div class="stat-num">∅→ℝ</div>
-        <div class="stat-label">Always Learning</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div id="skills">
-  <div class="skills-wrap">
-    <p class="section-label reveal">02 — Skills</p>
-    <div class="divider reveal"></div>
-    <h2 class="reveal">Tools of the <em>trade</em></h2>
-    <div class="skill-groups">
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Pure Mathematics</div>
-        <ul class="skill-list">
-          <li>Real Analysis</li>
-          <li>Abstract Algebra</li>
-          <li>Number Theory</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Applied &amp; Computational</div>
-        <ul class="skill-list">
-          <li>Differential Equations</li>
-          <li>Numerical Methods</li>
-          <li>Probability Theory</li>
-          <li>Linear Algebra</li>
-          <li>Statistics</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Programming</div>
-        <ul class="skill-list">
-          <li>Python (NumPy, SciPy)</li>
-          <li>MATLAB</li>
-          <li>LaTeX / TikZ</li>
-          <li>C++</li>
-          <li>Golang</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <div class="skill-group-title">Soft Skills</div>
-        <ul class="skill-list">
-          <li>Mathematical Writing</li>
-          <li>Proof Construction</li>
-          <li>Teaching &amp; Tutoring</li>
-          <li>Problem Decomposition</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="contact">
-  <div class="contact-wrap">
-    <p class="section-label reveal">03 — Contact</p>
-    <div class="divider reveal"></div>
-    <h2 class="reveal">Let's <em>connect</em></h2>
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="contact-intro">
-          <p>Whether you want to discuss a mathematical idea, collaborate on something, or just talk about the strange beauty of prime numbers — my inbox is open.</p>
-          <p>I'm also available for tutoring in calculus, linear algebra, and proof-writing.</p>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/MA-NOA" target="_blank" class="social-link"><span>⟶</span> github.com/MA-NOA</a>
-          <a href="mailto:manoa576@proton.me" class="social-link"><span>⟶</span> manoa576@proton.me</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="contact-form">
-          <div class="form-field">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-input" placeholder="Your name">
-          </div>
-          <div class="form-field">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" placeholder="your@email.com">
-          </div>
-          <div class="form-field">
-            <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="What's on your mind?"></textarea>
-          </div>
-          <a href="mailto:manoa576@proton.me" class="btn btn-primary" style="text-align:center;">Send Message</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2025 Irimanoa N. HJ · Built with pure HTML, CSS &amp; a love of mathematics</p>
-  <p class="footer-formula">∫₋∞^∞ e^{−x²} dx = √π</p>
-</footer>
-
-<script src="main.js"></script>
-</body>
-</html>
+<script>
+document.querySelectorAll('button.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var done = function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    var fallback = function () {
+      var el = btn.parentElement.querySelector('.v');
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      var s = window.getSelection();
+      s.removeAllRanges(); s.addRange(r);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
