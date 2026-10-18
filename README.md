@@ -2,7 +2,7 @@
 
 My simple portfolio site built with pure HTML, CSS & JavaScript.
 
-🔗 **Live site:** [https://ma-noa.github.io/](https://manoa.is-a.dev)
+🔗 **Live site:** [https://ma-noa.is-a.dev/](https://manoa.is-a.dev)
 
 ## Structure
 
@@ -23,5 +23,5 @@ portfolio/
 
 ## Contact
 
-- Email: manoa576@proton.me
+- Email: <manoa576@proton.me>
 - GitHub: [github.com/MA-NOA](https://github.com/MA-NOA)
